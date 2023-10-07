@@ -5,9 +5,21 @@
 </head>
 <body>
     <h1>Things Form</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+   
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+              <label for="{{ form.description.id_for_label }}">Description:</label>
+              <textarea name="{{ form.description.name }}" id="{{ form.description.id_for_label }}"
+                        maxlength="120" rows="4" cols="50">{{ form.description.value }}</textarea>
+          </div>
+          <div class="form-group">
+              <label for="{{ form.quantity.id_for_label }}">Quantity:</label>
+              {{ form.quantity }}
+          </div>
+          <button type="submit">Submit</button>
+      </form>
+      
         <button type="submit">Submit</button>
     </form>
 </body>
